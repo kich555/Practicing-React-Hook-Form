@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:400, 700');
+@import '~antd/dist/antd.css';
+@import './reset';
+@import './constants';
+@import './mixins';
+@import './common';
+@import './flexbox';
+@import './gridbox';
+@import './typography';
+@import './overrides';
+@import './animation';
+@import './antd';
+
+// common component
+@import './components/loading';
+// pages
+@import './pages/index';
