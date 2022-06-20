@@ -4,7 +4,7 @@ import ReactDatePicker from 'react-datepicker';
 import NumberFormat from 'react-number-format';
 import ReactSelect from 'react-select';
 import { EditorState } from 'draft-js';
-import InputMask from 'react-input-mask';
+
 import Header from './Header';
 import ButtonsResult from './ButtonResult';
 import DownShift from './DownShiftWrapper';
@@ -14,10 +14,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'antd/dist/antd.css';
 import 'styles/main.scss';
 
-let renderCount = 0;
-
 const defaultValues = {
   AntdInput: 'Test',
+  AntdTextArea: '',
   AntdCheckbox: true,
   AntdSwitch: true,
   AntdSlider: 20,
@@ -28,19 +27,27 @@ const defaultValues = {
   ReactDatepicker: new Date(),
   downShift: 'apple',
   DraftJS: EditorState.createEmpty(),
-  reactMaskInput: '',
 };
 
 export default function App() {
-  const { handleSubmit, reset, setValue, control } = useForm({ defaultValues });
+  let renderCount = 0;
+  const {
+    handleSubmit,
+    reset,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm({ defaultValues });
   const [data, setData] = useState(null);
   renderCount++;
-  console.log('test');
+
+  console.log('data', data);
+  console.log('errors', errors);
   return (
     <form onSubmit={handleSubmit(data => setData(data))} className="form margin-center">
       <Header renderCount={renderCount} />
       <hr />
-      <AntD control={control} />
+      <AntD control={control} errors={errors} />
       <hr />
       <div className="container">
         <section>
@@ -80,18 +87,6 @@ export default function App() {
         <section>
           <label>DraftJS</label>
           <DraftExample control={control} />
-        </section>
-        <section>
-          <label>React Input Mask</label>
-          <Controller
-            name="reactMaskInput"
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <InputMask mask="99/99/9999" value={value} onChange={onChange}>
-                {inputProps => <input {...inputProps} type="tel" className="input" />}
-              </InputMask>
-            )}
-          />
         </section>
       </div>
       <hr />
