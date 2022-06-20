@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -15,7 +16,6 @@
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.32.2",
-    "react-input-mask": "^2.0.4",
     "react-number-format": "^4.9.3",
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
