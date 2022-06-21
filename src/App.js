@@ -4,15 +4,16 @@ import ReactDatePicker from 'react-datepicker';
 import NumberFormat from 'react-number-format';
 import ReactSelect from 'react-select';
 import { EditorState } from 'draft-js';
-
+import { yupResolver } from '@hookform/resolvers/yup';
 import Header from './Header';
 import ButtonsResult from './ButtonResult';
 import DownShift from './DownShiftWrapper';
-import AntD from './AndtD';
 import DraftExample from './DraftExample';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'antd/dist/antd.css';
 import 'styles/main.scss';
+import schema from 'utils/schema';
+import AntD from 'AndtD';
 
 const defaultValues = {
   AntdInput: 'Test',
@@ -37,7 +38,7 @@ export default function App() {
     setValue,
     control,
     formState: { errors },
-  } = useForm({ defaultValues });
+  } = useForm({ defaultValues, resolver: yupResolver(schema) });
   const [data, setData] = useState(null);
   renderCount++;
 
