@@ -25,10 +25,6 @@ export default function AntD({ control, errors }) {
               value: 10,
               message: 'AntdTextArea must be at least 10 characters long.',
             },
-            // maxLength: {
-            //   value: 10,
-            //   message: 'AntdTextArea must be at least 10 characters long.',
-            // },
           }}
           render={({ field }) => <TextArea {...field} />}
         />

@@ -48,8 +48,6 @@ export default function App() {
     notification.success('성공!');
   }, []);
 
-  console.log('data', data);
-  console.log('errors', errors);
   return (
     <form onSubmit={handleSubmit(data => setData(data))} className="form margin-center">
       <Header renderCount={renderCount} />
