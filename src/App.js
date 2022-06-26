@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import ReactDatePicker from 'react-datepicker';
 import NumberFormat from 'react-number-format';
 import ReactSelect from 'react-select';
 import { EditorState } from 'draft-js';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { notification } from 'antd';
 import Header from './Header';
 import ButtonsResult from './ButtonResult';
 import DownShift from './DownShiftWrapper';
@@ -41,6 +42,11 @@ export default function App() {
   } = useForm({ defaultValues, resolver: yupResolver(schema) });
   const [data, setData] = useState(null);
   renderCount++;
+
+  useEffect(() => {
+    notification.error('에러가 났어요!', '다시한번 시도해 주세요!');
+    notification.success('성공!');
+  }, []);
 
   console.log('data', data);
   console.log('errors', errors);
