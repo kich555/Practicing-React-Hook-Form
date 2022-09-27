@@ -14,6 +14,11 @@ export default function AntD({ control, errors }) {
         <ErrorMessage errors={errors} name="AntdInput" message="This is required" />
       </section>
       <section>
+        <label>Antd Input</label>
+        <Controller placeholder="AntD Input" control={control} name="AntdInputB" render={({ field }) => <Input {...field} />} />
+        <ErrorMessage errors={errors} name="AntdInputB" message="This is required" />
+      </section>
+      <section>
         <label>Antd Textarea</label>
         <Controller
           placeholder="AntD Input"

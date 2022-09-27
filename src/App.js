@@ -18,6 +18,7 @@ import AntD from 'AndtD';
 
 const defaultValues = {
   AntdInput: 'Test',
+  AntdInputB: 'Test',
   AntdTextArea: '',
   AntdCheckbox: true,
   AntdSwitch: true,
